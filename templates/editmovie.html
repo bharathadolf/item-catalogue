@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<form action="{{ url_for('editMovieList',languages_id=languages.id,b_id=movie.id)}}" method="POST">
+	<div class="matter">
+		name<br><input type="text" name="name" value="{{movie.name}}"><br>
+		description<br><textarea name="languages_id" rows="5" cols="100" value="{{movie.about}}"></textarea><br>
+		languages_id<br><input type="text" name="languages_id" value="{{movie.languages_id}}"><br>
+		user_id<br><input type="text" name="user_id" value="{{movie.labs}}"><br>		
+		<button>Edit</button>
+
+		<button><a href="{{url_for('showMovies',languages_id=languages.id)}}">Cancel</a></button>
+    </div>
+	</form>
+</body>
+</html>

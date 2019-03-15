@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<form action="{{ url_for('newMovieList',movie_id=movie_id)}}" method="POST">
+		name-: <br><input type="text" name="name"><br>
+		description-: <br><textarea name="description"></textarea><br>
+		languages_id-: <br><input type="text" name="languages_id"><br>
+		user_id-: <br><input type="text" name="user_id"><br>
+		<button>Add </button>
+
+		<button><a href="{{ url_for('showMovies',languages_id=movie_id)}}">Cancel</a></button>
+</form>
+</body>
+</html>

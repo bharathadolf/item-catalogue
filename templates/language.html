@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div>
+  	{% if 'username' not in session %}
+  	<a href="{{url_for('showLogin')}}">Login</a>
+  	{% else %}
+  	<a href="{{url_for('logout')}}">logout</a>
+  	{% endif %}
+    <a href="{{ url_for('newLanguages')}}" >Add Language</a>
+  </div>
+</div>
+<form action="#" method="POST">
+<h2>Language</h2>
+<p>list of languages</p>
+<div>
+ <br>
+ {% for c in college %}
+ <div>
+ <a href="{{url_for('showMovies',languages_id=c.id)}}"><h4><font color="black">{{c.name}}</font></h4></a>
+
+ <button><a href="{{url_for('editLanguages',languages_id=c.id)}}">edit</a></button>
+
+ <button><a href="{{url_for('deleteLanguages',languages_id=c.id)}}">delete</a></button>
+ </div>
+{% endfor %}
+
+</div>
+</form>
+</body>
+</html>

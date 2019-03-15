@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>INFO</title>
+</head>
+<body>
+<form action="#" method="POST">
+	<div class="">
+		{% if 'username' in session %}
+		<ul>
+	   <button><font color="white"><a href="{{ url_for('newMovieList',movie_id=languages.id) }}">Add</font></a></button>
+		</ul>
+		{% endif %}
+	</div>
+	<div class="">
+		<br>{% for i in movie %}
+		<div><br>
+			<table>
+				<tr>
+					<th>name</th>
+	    			<th>description</th>
+	    			<th>languages_id</th>
+	    			<th>user_id</th>
+				</tr>
+				<tr>
+	    			<td><p>{{i.name}}</p></td>
+	    			<td><p>{{i.description}}</p></td>
+	    			<td><p>{{i.languages_id}}</p></td>
+	    			<td><p>{{i.user_id}}</p></td>
+	 			</tr>
+			</table>
+		</div><br>
+		{% if 'username' in session %}
+		<button><a href="{{ url_for('editMovieList', languages_id=languages.id, b_id=i.id) }}">edit</a></button>
+		<button><a href="{{ url_for('deleteMovieList', movie_id=college.id, list_id=i.id) }}"> delete</a></button>
+		{% endif %}
+		{% endfor %}
+	</div>
+</form>
+</body>
+</html>
